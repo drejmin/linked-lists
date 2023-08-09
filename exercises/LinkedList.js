@@ -1,5 +1,8 @@
 class Node{
-    constructor(){
+    constructor(element){
+
+        this.element = element;
+        this.next = null;
         // a Node starts with a given data property
         // a Node also has a .next property initialized as null
     }
@@ -7,9 +10,26 @@ class Node{
 
 class LinkedList{
     constructor(){
+        this.head = null;
+        this.size = 0;
         // a Linked List starts with a "head" property intialized as null
+
     }
     appendNode(data){
+        let newNode = new Node(data);
+        if (head == null){
+            head = new Node(data);
+            return
+        }
+
+        newNode.next = null;
+
+        let last = head;
+        while(last.next != null)
+            last = last.next;
+
+        last.next = newNode;
+        return;
         // creates a new node with the given data and adds it to back of the list
     }
     prependNode(data){
